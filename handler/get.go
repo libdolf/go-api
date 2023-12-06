@@ -5,11 +5,10 @@ import (
 	"net/http"
 
 	"github.com/libdolf/go-api/api_err"
-	"github.com/libdolf/go-api/config"
 )
 
 func (h *UserHandler) Get(w http.ResponseWriter, r *http.Request) {
-	matches := config.GetUserRe.FindStringSubmatch(r.URL.Path)
+	matches := GetUserRe.FindStringSubmatch(r.URL.Path)
 	if len(matches) < 2 {
 		api_err.NotFound(w, r)
 		return
@@ -17,7 +16,7 @@ func (h *UserHandler) Get(w http.ResponseWriter, r *http.Request) {
 
 	h.store.RLock()
 
-	u, ok := h.store.m[matches[1]]
+	u, ok := h.store.M[matches[1]]
 	h.store.RUnlock()
 	if !ok {
 		w.WriteHeader(http.StatusNotFound)

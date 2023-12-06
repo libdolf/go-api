@@ -7,6 +7,13 @@ import (
 )
 
 type Datastore struct {
-	m map[string]schemas.User
+	M map[string]schemas.User
 	*sync.RWMutex
+}
+
+func NewDatastore() *Datastore {
+	return &Datastore{
+		M:       make(map[string]schemas.User),
+		RWMutex: &sync.RWMutex{},
+	}
 }
