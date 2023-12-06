@@ -99,8 +99,8 @@ Esta é uma API simples em Go que implementa dois endpoints REST básicos para m
 
 2. **Clonando o Repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/sua-api-go.git
-   cd sua-api-go
+   git clone https://github.com/libdolf/go-api.git
+   cd go-api
 3. **Rodando o projeto**
  ```bash
 go run main.go
